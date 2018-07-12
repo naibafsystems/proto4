@@ -74,9 +74,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
   'dsn'	=> '',
-  'hostname' => '(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.22)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = dbtest)))',
-  'username' => 'DANE_GI',
-  'password' => 'DANE_GI123',
+  'hostname' => '(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = XE)))',
+  'username' => 'WCP_DIGITACION',
+  'password' => 'Digwcp18',
   'database' => '',
   'dbdriver' => 'oci8',
   'dbprefix' => '',
@@ -95,10 +95,10 @@ $db['default'] = array(
 );
 
 $db['soporte'] = array(
-  'dsn' => '',
-  'hostname' => '(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.22)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = dbtest)))',
-  'username' => 'DANE_GI',
-  'password' => 'DANE_GI123',
+  'dsn'	=> '',
+  'hostname' => '(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)))(CONNECT_DATA = (SERVICE_NAME = XE)))',
+  'username' => 'WCP_DIGITACION',
+  'password' => 'Digwcp18',
   'database' => '',
   'dbdriver' => 'oci8',
   'dbprefix' => '',
@@ -115,7 +115,6 @@ $db['soporte'] = array(
   'failover' => array(),
   'save_queries' => FALSE
 );
-
 /*$db['default'] = array(
   'dsn' => '',
   'hostname' => '(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=simco-scan)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=simco)))',

@@ -79,8 +79,8 @@ $(function () {
             hora: {required: true, min:1, max:24},
             minutos: {required: true, min:00, max:59},
             resultado_entrevista: {required: true},
-            cod_censita: {required: true},
-            cod_supervisor: {required: true},
+            cod_censita: {required: false},
+            cod_supervisor: {required: false},
             nume_certificado: {maxlength:9}
         },
         messages: {

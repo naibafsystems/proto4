@@ -644,7 +644,7 @@ var unicaCedula = function (idCampo, idCampo2) {
             }
         })
         .fail(function(jqXHR) {
-            window.location.href = base_url + 'hogar';
+            //window.location.href = base_url + 'hogar';
         });
     });
 

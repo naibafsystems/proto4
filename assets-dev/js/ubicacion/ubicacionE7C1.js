@@ -32,6 +32,67 @@ $(function () {
     $('#numero_placa').textoDireccion().maxlength(20);
     $('#complementos').textoDireccion().maxlength(100);
 
+    $('#U_CO').soloNumeros().maxlength(3);
+    $('#U_AO').soloNumeros().maxlength(3);
+    $('#U_UC').soloNumeros().maxlength(3);
+    $('#U_EDIFICA').soloNumeros().maxlength(3);
+    $('#U_VIVIENDA').soloNumeros().maxlength(3);
+
+    $('#div_uso_unidad_otrouso').hide();
+    $('#div_uso_unidad_undnoresi').hide();
+    $('#div_numero_documento_jefe').hide();
+    $('#div_numero_certificado').hide();
+
+    $('input[type=radio][name=UVA_USO_UNIDAD]').change(function() {
+        if (this.value == 1) {
+            $('input[type=radio][name=UVA1_COD_OTROUSO]').prop('checked', false);
+            $('input[type=radio][name=UVA2_UNDNORESI]').prop('checked', false);
+
+            $('#div_uso_unidad_otrouso').hide();
+            $('#div_uso_unidad_undnoresi').hide();
+        }
+        else if (this.value == 2) {
+            $('input[type=radio][name=UVA2_UNDNORESI]').prop('checked', false);
+            
+            $('#div_uso_unidad_otrouso').show();
+            $('#div_uso_unidad_undnoresi').hide();
+        }
+        else if (this.value == 3) {
+            $('input[type=radio][name=UVA1_COD_OTROUSO]').prop('checked', false);
+
+            $('#div_uso_unidad_otrouso').hide();
+            $('#div_uso_unidad_undnoresi').show();
+        }
+    });
+
+    $('input[type=radio][name=UVA_ECENSO]').change(function() {
+        if (this.value == 1) {
+            $('#div_numero_documento_jefe').show();
+        }
+        else if (this.value == 2) {
+            $('#UVA_COMPLEUND_JSON').val('');
+            $('#div_numero_documento_jefe').hide();
+        }
+        else if (this.value == 3) {
+            $('#UVA_COMPLEUND_JSON').val('');
+            $('#div_numero_documento_jefe').hide();
+        }
+    });
+
+    $('input[type=radio][name=UVA_ECENSO6]').change(function() {
+        if (this.value == 1) {
+            $('#div_numero_certificado').show();
+        }
+        else if (this.value == 2) {
+            $('#H_CERT_CENSAL').val('');
+            $('#div_numero_certificado').hide();
+        }
+        else if (this.value == 3) {
+            $('#H_CERT_CENSAL').val('');
+            $('#div_numero_certificado').hide();
+        }
+    });
+
     $('#tipo_via, #numero_via, #numero_via2, #numero_placa, #complementos').change(function(event) {
         var item = $(this);
         var tipo_via = $('#tipo_via ');

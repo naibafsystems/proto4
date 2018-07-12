@@ -1,20 +1,28 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteCond $1 !^(index\.php|assets|ci_session|css|files|images|js|uploads|videos|robots\.txt)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteBase /root_folder_name/
-    # RewriteCond %{REQUEST_URI} ^system.*
-    RewriteRule ^(.*)$ index.php/$1 [L]
+    RewriteBase /digitacione
+    #Removes access to the system folder by users.
+    #Additionally this will allow you to create a System.php controller,
+    #previously this would not have been possible.
+    #'system' can be replaced if you have renamed your system folder.
+    RewriteCond %{REQUEST_URI} ^system.*
+    RewriteRule ^(.*)$ /index.php/$1 [L,QSA]
+    #When your application folder isn't in the system folder
+    #This snippet prevents user access to the application folde
+    #Rename 'application' to your applications folder name.
+    RewriteCond %{REQUEST_URI} ^application.*
+    RewriteRule ^(.*)$ /index.php/$1 [L,QSA]
+    #Checks to see if the user is attempting to access a valid file,
+    #such as an image or css document, if this isn't true it sends the
+    #request to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !=/server-status
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
 
-    # expiracion de 1 mes para archivos estaticos
-    ExpiresActive On
-    ExpiresDefault A0
-
-    ExpiresByType image/gif A2592000
-    ExpiresByType image/png A2592000
-    ExpiresByType image/jpg A2592000
-    ExpiresByType image/jpeg A2592000
-    ExpiresByType text/css A2592000
-    ExpiresByType text/javascript A2592000
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php, and everything works as normal.
+    ErrorDocument 404 /index.php
 </IfModule>

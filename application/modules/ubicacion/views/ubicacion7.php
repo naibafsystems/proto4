@@ -166,7 +166,7 @@
                                 Mixto
                             </label>       
 
-                            <div class="form-group" style="margin: 20px;">
+                            <div id="div_uso_unidad_otrouso" class="form-group" style="margin: 20px;">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="UVA1_COD_OTROUSO" id="unidad2_industria" value="1" <?= ($UVA1_COD_OTROUSO==1)?'checked':''; ?>>
                                     <label class="form-check-label" for="unidad2_industria">
@@ -201,7 +201,7 @@
                                 Unidad no residencial
                             </label>
 
-                            <div class="form-group" style="margin: 20px;">
+                            <div id="div_uso_unidad_undnoresi" class="form-group" style="margin: 20px;">
 
                                 <div class="form-check">
                                     <input class="radio" type="radio" name="UVA2_UNDNORESI" id="unidad3_industria" value="1" <?= ($UVA2_UNDNORESI==1)?'checked':''; ?>>
@@ -306,7 +306,7 @@
                             </label>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div  id="div_numero_documento_jefe" class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <label class="control-label">¿Cuál es el número del documento de identidad del jefe(a) de hogar?</label>
@@ -339,7 +339,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <div class="col-xs-12 col-sm-12 col-md-12">
-                            <label class="control-label">¿Este hogar cambió de lugar de residensia entre en el eCenso y el día de hoy?</label>
+                            <label class="control-label">¿Este hogar cambió de lugar de residencia entre en el eCenso y el día de hoy?</label>
                         </div>
                     </div>
 
@@ -407,7 +407,7 @@
                             </label>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div id="div_numero_certificado" class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <label class="control-label">¿Cuál es el número del certificado censal que le entregaron?</label>

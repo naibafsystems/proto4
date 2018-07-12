@@ -36,53 +36,19 @@ $(function () {
             $(element).parent().removeClass('has-error');
         },
         submitHandler: function (form) {
-            /*if (grecaptcha.getResponse() == '') {
-                BootstrapDialog.alert({
-                    title: 'Verificar reCAPTCHA',
-                    message: 'Por favor verifica que no eres un robot',
-                    closable: true,
-                    buttonLabel: 'Aceptar'});
-                $(':button').addClass('disabled').prop('disabled', false);
-                $('#btnIngresar').button('loading');
-                return false;
-            } else {
-                return true;
-            }*/
-            if (typeof grecaptcha == "undefined"){
-                if (grecaptcha.getResponse() == '') {
-                    $(':button').removeClass('disabled').prop('disabled', false);
-                    $('#btnIngresar').button('');
-                    return false;
-                 }
-             }
+            $(':button').removeClass('disabled').prop('disabled', false);
+            $('#btnIngresar').button('');
             return true;
         }
     });
 
     $.fn.ingresar = function () {
         if ($('#frmIngreso').valid() == true) {
-            if (typeof grecaptcha == "undefined"){
-                 if (grecaptcha.getResponse() == '') {
-                    BootstrapDialog.alert({
-                        title: 'Verificar reCAPTCHA',
-                        message: 'Por favor verifica que no eres un robot',
-                        closable: true,
-                        buttonLabel: 'Aceptar'});
-                    return false;
-                } else {
-                    var md5 = $.md5($("#contrasena").val());
-                    $("#contrasena").val(md5);
-                    $(':button').addClass('disabled').prop('disabled', true);
-                    $('#btnIngresar').button('loading');
-                    $('#frmIngreso').submit();
-                }
-            }else{
-                var md5 = $.md5($("#contrasena").val());
-                $("#contrasena").val(md5);
-                $(':button').addClass('disabled').prop('disabled', true);
-                $('#btnIngresar').button('loading');
-                $('#frmIngreso').submit();
-            }
+            var md5 = $.md5($("#contrasena").val());
+            $("#contrasena").val(md5);
+            $(':button').addClass('disabled').prop('disabled', true);
+            $('#btnIngresar').button('loading');
+            $('#frmIngreso').submit();
         }
 
         $(':button').removeClass('disabled').prop('disabled', false);
@@ -144,13 +110,3 @@ $(function () {
         }
     }
 });
-
-var onloadCallback = function() {
-    grecaptcha.render('html_element', {
-      'sitekey' : '6LeiWxcUAAAAAGtuMc8JuqFnyn7R3L4C4zWj4Eho',
-     'callback' : correctCaptcha
-    });
-};
-
-var correctCaptcha = function(response) {
-};

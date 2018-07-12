@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+﻿<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 //require_once APPPATH . 'libraries/predis/src/Autoloader.php';
 
@@ -24,10 +24,10 @@ class Moddigitacion extends My_model {
             'port'   => $this->config->item('redis_port'),
             'password' => $this->config->item('redis_password')
         ]);*/
-        $this->redis = new Redis();
+        /*$this->redis = new Redis();
         $this->redis->connect($this->config->item('redis_host'), $this->config->item('redis_port'));
         $this->redis->auth($this->config->item('redis_password'));
-        $this->redis->select($this->config->item('redis_database'));
+        $this->redis->select($this->config->item('redis_database'));*/
         //echo "Server is running: ".$this->redis->ping();
     }
 
