@@ -123,14 +123,6 @@
             }
         }
         ?>
-    <div class="boton-chat btn btn-default">
-       <a href="https://dane.agenti.com.co/chate/" target="blank">
-            <div>
-                <img class="contact-button-icon chat-icon-image chat-icon-image-logged-in src="<?=base_url_images('chat_blanco.png'); ?>" >
-                </div>
-             <div>CONTÁCTENOS</div>
-        </a>
-    </div>
 
     </body>
 </html>

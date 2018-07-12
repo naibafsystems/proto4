@@ -27,9 +27,7 @@ if(!empty($msgErrorFD)) {
                 <div id='html_element'></div-->
                 <br/>
                 <button type="button" id="btnIngresar" name="btnIngresar" autofocus class="btn btn-dane-success" data-loading-text="Ingresar <span class='glyphicon glyphicon-refresh glyphicon-refresh-animate'></span> "> Ingresar</button>
-                <div class="pull-right">
-                    <a href="login/recuperarContrasena">¿Olvidó su contraseña?</a>
-                </div>
+               
             </fieldset>
         </form>
         <div id="divMsgSuccess" class="alert alert-success" <?php echo (strlen($msgSuccess) == 0) ? 'style="display: none;"' : ''; ?>>
