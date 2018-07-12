@@ -4,13 +4,12 @@ $(function () {
 
     $('#frmIngreso').validate({
         rules: {
-            usuario_soporte: {required: true, emailValido: true},
+            usuario_soporte: {required: true},
             contrasena: {required: true}
         },
         messages: {
             usuario_soporte: {
                 required: 'Digite su correo electr\u00f3nico.',
-                emailValido: 'No es una direcci\u00f3n de correo electr\u00f3nico v\u00e1lida'
             },
             contrasena: {required: 'Digite su contrase\u00f1a.'}
         },
@@ -32,52 +31,19 @@ $(function () {
             $(element).parent().removeClass('has-error');
         },
         submitHandler: function (form) {
-            /*if (grecaptcha.getResponse() == '') {
-                BootstrapDialog.alert({
-                    title: 'Verificar reCAPTCHA',
-                    message: 'Por favor verifica que no eres un robot',
-                    closable: true,
-                    buttonLabel: 'Aceptar'});
-                $('#btnIngresar').removeClass('disabled');
-                $('#btnIngresar').prop('disabled', false);
-                return false;
-            } else {
-                return true;
-            }*/
-            if (typeof grecaptcha != "undefined"){
-                if (grecaptcha.getResponse() == '') {
-                    $(':button').removeClass('disabled').prop('disabled', false);
-                    $('#btnIngresar').button('');
-                    return false;
-                 }
-             }
+            $(':button').removeClass('disabled').prop('disabled', false);
+            $('#btnIngresar').button('');
             return true;
         }
     });
 
     $.fn.ingresar = function () {
         if ($('#frmIngreso').valid() == true) {
-            if (typeof grecaptcha != "undefined"){
-                if (grecaptcha.getResponse() == '') {
-                    BootstrapDialog.alert({
-                        title: 'Verificar reCAPTCHA',
-                        message: 'Por favor verifica que no eres un robot',
-                        closable: true,
-                        buttonLabel: 'Aceptar'});
-                } else {
-                    var md5 = $.md5($("#contrasena").val());
-                    $("#contrasena").val(md5);
-                    $(':button').addClass('disabled').prop('disabled', true);
-                    $('#btnIngresar').button('loading');
-                    $('#frmIngreso').submit();
-                }
-            } /*else{
-                var md5 = $.md5($("#contrasena").val());
-                $("#contrasena").val(md5);
-                $(':button').addClass('disabled').prop('disabled', true);
-                $('#btnIngresar').button('loading');
-                $('#frmIngreso').submit();
-            }*/
+            var md5 = $.md5($("#contrasena").val());
+            $("#contrasena").val(md5);
+            $(':button').addClass('disabled').prop('disabled', true);
+            $('#btnIngresar').button('loading');
+            $('#frmIngreso').submit();
         }
         return false;
     };
